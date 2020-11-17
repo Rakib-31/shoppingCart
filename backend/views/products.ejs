@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="panel.css" type="text/css">
+  
+</head>
+<body>
+        
+    <nav class=" border-box ">
+        <div class="container">
+        <div class="row navpad">
+            <div class="col-6"><button class="btn"><h5>Test Logo</h5></button></div>
+            <div class="col-6 text-right ">User Name </div>
+        </div>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <div class="side-top-margin container">
+        <a onclick="openItem()">Promotions</a>
+        <div id="mySidenav">
+            <div class="mt-2"><a href="/promocode">Promo Codes</a></div>
+            <div class="mt-2"><a href="/addnewpromo">Add Promo Codes</a></div>
+        </div>
+        <div id="main">
+            <div class="mt-2"><a href="#news">Orders</a></div>
+            <div class="mt-2"><a href="/getallproducts">Products</a></div>
+        </div>
+    </div>
+    </div>
+        
+    <div class="content">
+            
+        <div><a href="/addproducts" class="btn button-design">Add New Product</a></div>
+        <% for(var i=0; i < item.length; i++) { %>
+            <a href="/editproduct/<%=item[i]._id%>">
+                <div class="card">
+                    <img  class="card-img-top" src="<%=item[i].image%>" alt="Card image">
+                    <div class="card-body">
+                        <small class="card-title"><%=item[i].product_name%></small>
+                    </div>
+                    <div class="card-footer bg-white">
+                        
+                        <p style="display: inline-block"><strong>BDT. <%=item[i].product_price%></strong></p>
+                        <p style="display: inline-block; background-color: yellow;" class="float-right"><strong><%=item[i].discount_rate%>%</strong></p>
+                    </div>
+                </div>
+            </a>
+        <% } %> 
+    </div>
+
+    
+    
+    
+     
+    
+    <script>
+            
+            function openItem() {
+              //document.getElementById("mySidenav").style.width = "250px";
+                var x = document.getElementById("mySidenav");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+                //document.getElementById("main").style.marginTop = "250px";
+            }
+            
+            
+            </script>
+</body>
+</html>
+
+        
+    

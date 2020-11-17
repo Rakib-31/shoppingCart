@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="panel.css" type="text/css">
+</head>
+<body>
+    <nav class=" border-box ">
+        <div class="container">
+        <div class="row navpad">
+            <div class="col-6"><button class="btn"><h5>Test Logo</h5></button></div>
+            <div class="col-6 text-right ">User Name </div>
+        </div>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <div class="side-top-margin container">
+        <a onclick="openItem()">Promotions</a>
+        <div id="mySidenav">
+            <div class="mt-2"><a href="/promocode">Promo Codes</a></div>
+            <div class="mt-2"><a href="/addnewpromo">Add Promo Codes</a></div>
+        </div>
+        <div id="main">
+            <div class="mt-2"><a href="#news">Orders</a></div>
+            <div class="mt-2"><a href="/getallproducts">Products</a></div>
+        </div>
+    </div>
+    </div>
+        
+    <div class="content">
+        <div class="form-position">
+            <form enctype="multipart/form-data"  action="/saveProduct" method="POST">
+                <div class="image-upload text-center">
+                        <label for="image">
+                            <div class="image-input-box">
+                                <div class="text-position">
+                                    <p>Upload</p>
+                                    <p>Product Image</p>
+                                    <p>Image size must be</p>
+                                    <p>500*500</p>
+                                </div>
+                            </div>
+                        </label>
+                    
+                        <input id="image" name="image" type="file"/>
+                    </div>
+                <div class="form-group">
+                    <label for="product_name">Product Name</label>
+                    <input class="form-control" type="text" value="" name="product_name" id="product_name"/>
+                </div>
+                <div class="form-group">
+                    <label for="product_price">Product Price (Before Discount)</label>
+                    <input class="form-control" type="text" value="" name="product_price" id="product_price"/>
+                </div>
+                <div class="form-group">
+                    <label for="discount_rate">Discount Rate</label>
+                    <input class="form-control" type="text" value="" name="discount_rate" id="discount_rate"/>
+                </div>
+                <div class="form-group">
+                    <label for="shipping_charge">Shipping Charge</label>
+                    <input class="form-control" type="text" value="" name="shipping_charge" id="shipping_charge"/>
+                </div>
+                <div class="form-group">
+                    <label for="color">Color</label>
+                    <input class="form-control" type="text" value="" name="color" id="color"/>
+                </div>
+                <div class="form-group">
+                    <label for="size">Size</label>
+                    <input class="form-control" type="text" value="" name="size" id="size"/>
+                </div>
+                <div class="checkbox-design d-flex">
+                    <label for="size">Active</label>
+                    <input class="ml-auto" type="checkbox" value="" name="active" id="active"/>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn" type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openItem() {
+            //document.getElementById("mySidenav").style.width = "250px";
+            var x = document.getElementById("mySidenav");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            //document.getElementById("main").style.marginTop = "250px";
+        }
+        
+    </script>
+</body>
+</html>

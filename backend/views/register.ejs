@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/login.css" type="text/css">
+</head>
+<body style="background-color:ghostwhite">
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <div class="text-center" >
+            <form action="/api/adminregister" method="POST">
+                <label for="adminId">User ID</label>
+                <input type="text" name="adminId" id="adminId" value=""/>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value=""/>
+                <button type="submit">Sign up</button>
+            </form>
+
+            
+        </div>
+    </div>
+</body>
+</html>

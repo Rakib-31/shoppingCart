@@ -1,0 +1,89 @@
+body{
+    background-color: rgb(247, 241, 241);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 80%;
+    min-height: 100%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+
+  .lastdiv {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    width: 80%;
+    min-height: 100%;
+    margin-bottom: 20%;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    background: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    padding-left: 50px;
+    box-shadow: 0 2px 2px 0 rgba(184, 168, 168, 0.3);
+  }
+  
+  #formContent {
+    border-radius: 10px 10px 10px 10px;
+    background: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    padding-left: 50px;
+    box-shadow: 0 2px 2px 0 rgba(184, 168, 168, 0.3);
+    
+  }
+  
+  
+  
+  /* FORM TYPOGRAPHY*/
+  
+  
+  
+  input[type=text] {
+    background-color: white;
+    
+    padding: 10px 20px;
+    text-align: center;
+
+    display: inline-block;
+
+    margin: 5px;
+    width: 100%;
+    
+    border-radius: 5px 5px;
+  }
+
+
+  input[type=password] {
+    background-color: white;
+    color: #0d0d0d;
+    padding: 10px 20px;
+    text-align: center;
+
+    display: inline-block;
+
+    margin: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    
+    border-radius: 5px 5px;
+  }
+
+  .btn{
+    border-radius: 10px 10px;
+    background-color: yellow;
+    height: 2rem;
+    margin-bottom: 10px;
+    border: none;
+    text-align: center;
+  }
