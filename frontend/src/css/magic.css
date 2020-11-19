@@ -1,0 +1,217 @@
+body{
+    background-color: rgb(245, 245, 245);
+}
+
+a{
+    cursor: pointer;
+}
+
+nav{
+    overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+    background-color : white;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+}
+
+.btn{
+    border-radius: 50px 50px;
+    background-color: yellow;
+    
+    
+    border: none;
+    text-align: center;
+  }
+
+
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: white;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    margin-top: 5px;
+    top: 10%;
+  }
+
+  .side-top-margin{
+      margin-top: 15%;
+  }
+  
+  .sidebar a {
+    
+    color: black;
+    margin-left: 3%;
+    text-decoration: none;
+    font-size: 1.7vw;
+  }
+   
+  
+  
+  .content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100%;
+    overflow: auto;
+    margin-top: 8%;
+  }
+
+  #mySidenav{
+    display: none;
+    transition: .5s;
+    margin-left: 20px;
+    
+}
+
+#mySidenav a{
+    font-size: 1.3vw;
+}
+  
+  .sidebar button{
+      background-color: white;
+      border: none;
+  }
+
+  .button-design{
+      margin-top: 2%;
+      border-radius: 20px 20px;
+      background: white;
+      border: none;
+      color: black;
+  }
+
+  form{
+      width: 30%;
+      margin-left: 30%;
+      margin-top: 0%;
+      background-color: white;
+      border-radius: 5px 5px;
+      padding-bottom: 20px;
+  }
+
+  .form-group{
+      margin-left: 10%;
+      margin-right: 10%;
+
+  }
+
+.checkbox-design{
+    width: 120px;
+
+}
+
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-input-box
+{
+    margin-top: 20px;
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+    background-color: yellow;
+}
+
+.card{
+    width:250px; 
+    height: 360px;
+    margin-top: 2%;
+    margin-left: 11px;
+    margin-right: 10px;
+    display: inline-block;
+    border-radius: 10px 10px;
+    z-index: -1;
+}
+
+.card img{
+    width:250px; 
+    height: 230px;
+    padding: 10px;
+    border-radius: 10px 10px;
+}
+
+.card-footer{
+    border: none;
+}
+
+.btn-active{
+    display: inline-block;
+    background-color: brown;
+    width: 80px;
+    border: none;
+    border-radius: 10px 10px;
+}
+
+.btn-edit{
+    display: inline-block;
+    background-color: yellow;
+    width: 80px;
+    border: none;
+    border-radius: 10px 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+      width: 30%;
+      height: 100%;
+      position: fixed;
+      margin-top:0px;
+    }
+    .sidebar a {float: left; margin-left: 0px; font-size: 4vw}
+    div.content {margin-left: 30%;margin-top: 18%;}
+    #mySidenav{
+        margin-left: 0px;
+    }
+    #mySidenav a{
+        font-size: 3vw;
+    }
+
+    form{
+        width: 200px;
+        margin-left: 0px;
+        padding-bottom: 5%;
+        background-color: white;
+        border-radius: 5px 5px;
+    }
+
+    .image-input-box
+    {
+        margin-top: 20px;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+        background-color: yellow;
+    }
+
+    .card{
+        width:180px; 
+        height: 250px;
+        margin-top: 20%;
+        margin-left: 11px;
+        margin-right: 10px;
+        display: inline-block;
+        border-radius: 10px 10px;
+        z-index: -1;
+    }
+    
+    .card img{
+        width:180px; 
+        height: 150px;
+        padding: 10px;
+        border-radius: 10px 10px;
+    }
+    
+
+  }
+
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      float: none;
+    }
+  }

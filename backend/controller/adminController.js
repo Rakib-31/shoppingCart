@@ -4,7 +4,7 @@ const validate = require('../validators/validator');
 const promoValidate = require('../validators/promoValidator');
 const sharp = require('sharp');
 const PromoCodeModel = require('../model/promoCodeModel');
-const testFunction = require('../js/product');
+
 //const alert = require('alert');
 //const multer = require('multer');
 
@@ -23,33 +23,45 @@ module.exports = {
 
     //login for admin panel
     login(req,res) {
-        let {adminId, password} = req.body;
-        Admin.findOne({adminId})
-        .then(admin => {
-            // console.log(admin.adminId);
-            // console.log(admin.password);
-            (password === admin.password) ? res.redirect('/panel') : res.status(500).json({
-                message: 'Invalid password'
+        // let {adminId, password} = req.body;
+        // Admin.findOne({adminId})
+        // .then(admin => {
+        //     // console.log(admin.adminId);
+        //     // console.log(admin.password);
+        //     (password === admin.password) ? res.redirect('/panel') : res.status(500).json({
+        //         message: 'Invalid password'
+        //     });
+        // })
+        // .catch(error => console.log(error));
+        if(req.body.adminId === 'Rakib_31' && req.body.password === 'Easy_123'){
+            res.status(200).json({
+                message: 'Login successful',
+                status: true
             });
-        })
-        .catch(error => console.log(error));
+        }
+        else {
+            res.status(500).json({
+                message: 'Login failed',
+                status: false
+            });
+        }
     },
 
-    register(req,res) {
-        console.log(req.body);
-        let {adminId, password} = req.body;
-        let admin = new Admin({
-            adminId,
-            password
-        });
-        admin.save()
-        .then(admin => {
-            return res.status(201).json({
-                message: 'admin created successfully'
-            });
-        })
-        .catch(error => console.log(error));
-    },
+    // register(req,res) {
+    //     console.log(req.body);
+    //     let {adminId, password} = req.body;
+    //     let admin = new Admin({
+    //         adminId,
+    //         password
+    //     });
+    //     admin.save()
+    //     .then(admin => {
+    //         return res.status(201).json({
+    //             message: 'admin created successfully'
+    //         });
+    //     })
+    //     .catch(error => console.log(error));
+    // },
 
     //render login.ejs file
     loginPage(req,res){
@@ -63,23 +75,14 @@ module.exports = {
 
      //render products,ejs file
     products(req,res){
-        var imageData;
 
-        console.log('something to be find');
         AddProductModel.find(req.query)
         .exec(function(err, data) {
-            //console.log(data);
             if (err){
                 console.log(err);
                 return res.status(400).json(err);
             }
-            //return res.status(200).json(data);;
-            var imageData = data;
-            imageData.forEach((element) => {
-                console.log(element.image);
-            });
-        
-            res.render('products', {item: imageData});
+            res.render('products', {item: data});
             
         });
         
@@ -103,7 +106,7 @@ module.exports = {
             // resize image using sharp
             sharp(req.file.path).resize({width: 500, height:500}).toFile('./uploads/images/'+req.file.originalname)
             .then(test => {
-                req.file.path = 'uploads\\images\\' + req.file.originalname;
+                req.file.path = 'http:\\\\localhost:4000\\uploads\\images\\' + req.file.originalname;
                 let product = new AddProductModel({
                     image: req.file.path,
                     product_name,
@@ -117,10 +120,8 @@ module.exports = {
                 console.log(product);
                 product.save()
                 .then(product => {
-                    //res.status(500).json({message: 'Product created successfully'});
-                    res.send(
-                        '<div style="background-color: grey;text-align: center; margin-top: 10%; margin-left: 40%; color: red; z-index: 1; height: 200px; width: 200px; box-shadow: 5px 5px grey;"><h1>OK</h1></div>'
-                    );
+                    res.status(500).json({message: 'Product created successfully'});
+                    
                 })
                 .catch(eror => console.log(error));
             })
@@ -135,14 +136,10 @@ module.exports = {
     editProduct(req,res){
         AddProductModel.findOne({_id: req.params.productId})
         .exec(function(err, data) {
-            //console.log(data);
             if (err){
                 console.log(err);
                 return res.status(400).json(err);
             }
-            //return res.status(200).json(data);;
-            //data.start_date = data.start_date.getDate();
-        
             res.render('updateProduct', {productData: data});
             
         });
@@ -156,35 +153,26 @@ module.exports = {
                 res.status(500).json(err);
             }
             else {
-                
-            //     res.status(200).json({
-                
-            //     message: 'Successfully updated'
-            // });
-
              res.redirect('/getallproducts');
-        }
+            }
         })
     },
 
     getPromoCode(req,res){
 
-        console.log('something to be find');
         PromoCodeModel.find(req.query)
         .exec(function(err, data) {
-            //console.log(data);
             if (err){
                 console.log(err);
                 return res.status(400).json(err);
             }
-            //return res.status(200).json(data);;
-            //data.start_date = data.start_date.getDate();
+
             var promoCodeData = data;
             promoCodeData.forEach((element) => {
                 console.log(element.promo_code);
             });
         
-            res.render('promocode', {promoItem: promoCodeData, imaging: testFunction});
+            res.render('promocode', {promoItem: promoCodeData});
             
         });
     },
