@@ -4,20 +4,7 @@ const validate = require('../validators/validator');
 const promoValidate = require('../validators/promoValidator');
 const sharp = require('sharp');
 const PromoCodeModel = require('../model/promoCodeModel');
-
-//const alert = require('alert');
-//const multer = require('multer');
-
-// const storage = multer.diskStorage({
-//     destination: function(req, file, cb){
-//         cb(null, '../uploads/');
-//     },
-//     filename: function(req,file,cb){
-//         cb(null, new Date().toISOString()+file.originalname);
-//     }
-// });
-
-// const upload = multer({storage: storage});
+const OrderConfirmModel = require('../model/orderModel');
 
 module.exports = {
 
@@ -33,7 +20,7 @@ module.exports = {
         //     });
         // })
         // .catch(error => console.log(error));
-        if(req.body.adminId === 'Rakib_31' && req.body.password === 'Easy_123'){
+        if(req.body.adminId === 'rakib_31' && req.body.password === 'Easy_123'){
             res.status(200).json({
                 message: 'Login successful',
                 status: true
@@ -46,6 +33,8 @@ module.exports = {
             });
         }
     },
+
+
 
     // register(req,res) {
     //     console.log(req.body);
@@ -63,15 +52,21 @@ module.exports = {
     //     .catch(error => console.log(error));
     // },
 
+
+
     //render login.ejs file
     loginPage(req,res){
         res.render('login');
     },
 
+
+
      //render panel.ejs file
     panel(req,res){
         res.render('panel');
     },
+
+
 
      //render products,ejs file
     products(req,res){
@@ -84,16 +79,17 @@ module.exports = {
             }
             res.render('products', {item: data});
             
-        });
-        
-        
-        
+        }); 
     },
+
+
 
     //render addproducts.ejs file
     addproducts(req,res){
         res.render('addproducts');
     },
+
+
 
     //creating new products
     saveProduct(req,res,next) {
@@ -133,6 +129,9 @@ module.exports = {
         }
     },
 
+
+
+    // edit specific product from the database
     editProduct(req,res){
         AddProductModel.findOne({_id: req.params.productId})
         .exec(function(err, data) {
@@ -145,6 +144,8 @@ module.exports = {
         });
     },
 
+
+    //update product from the cart
     updateProduct(req,res){
         //console.log(req.body);
         let {product_name, product_price, discount_rate, color, size, shipping_charge} = req.body;
@@ -158,6 +159,8 @@ module.exports = {
         })
     },
 
+
+    // getting all promocode from the database
     getPromoCode(req,res){
 
         PromoCodeModel.find(req.query)
@@ -177,10 +180,14 @@ module.exports = {
         });
     },
 
+
+    //open a view for new promo code  
     addNewPromo(req,res){
         res.render('newPromo');
     },
 
+
+    //save new promo code
     savePromoCode(req,res,next) {
         console.log(req.body);
            
@@ -200,6 +207,9 @@ module.exports = {
         }
     },
 
+
+    //for update existing promo
+    // code it returns the view with existing code
     updatePromoCode(req,res){
         //res.json(req.params);
         PromoCodeModel.findOne({_id: req.params.promoId})
@@ -217,6 +227,8 @@ module.exports = {
         });
     },
 
+
+    //update the existing promo code here
     updatePromo(req,res){
         PromoCodeModel.findOneAndUpdate({promo_code:req.body.promo_code}, req.body, { upsert: true }, function(err){
             if(err) {
@@ -224,6 +236,22 @@ module.exports = {
             }
             else  res.redirect('/promocode');
         })
+    },
+
+
+    //getting all order form the database
+    orderPage(req,res){
+        OrderConfirmModel.find(req.query)
+        .exec(function(err, data) {
+            if (err){
+                console.log(err);
+                return res.status(400).json(err);
+            }
+            //console.log(data);
+        
+            res.render('order', {orderData: data});
+            
+        });
     }
 
 }

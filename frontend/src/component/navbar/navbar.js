@@ -15,14 +15,14 @@ function App() {
             setCartItem(response.data.length);
         })
         .catch(error => console.log(error));
-    },[cartItem])
+    })
 
   return (
 
     <nav  className="border-box  bg-white">
         <div className="container">
         <div className="row navpad">
-            <div className="col-3"><h5 className="btn">Test Logo</h5></div>
+            <div className="col-3"><h5 className="btn"><Link style={{color: "black"}} to="/"> Test Logo</Link></h5></div>
             
             <input className="col-4 input-clas" value="" placeholder="Serch"/>
             

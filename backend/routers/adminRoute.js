@@ -13,7 +13,8 @@ const {
     updatePromoCode,
     updatePromo,
     editProduct,
-    updateProduct
+    updateProduct,
+    orderPage
 } = require('../controller/adminController');
 
 const router = require('express').Router();
@@ -35,7 +36,7 @@ const upload = multer({storage: storage});
 
 router.post('/adminlogin', login);
 //router.post('/adminregister', register);
-router.get('/', loginPage);
+router.get('/login', loginPage);
 
 router.get('/panel', panel);
 
@@ -51,5 +52,6 @@ router.get('/promocode', getPromoCode);
 router.get('/addnewpromo', addNewPromo);
 router.post('/savepromo', savePromoCode);
 router.post('/updatepromo', updatePromo);
+router.get('/order', orderPage);
 
 module.exports = router;

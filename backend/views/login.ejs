@@ -6,28 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="login.css" type="text/css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
         
     <div class="container wrapper">
             <h1 class="text-center responsive">Admin Panel</h1>
         <div id="formContent">
-        
-            <form class="container" action="/adminlogin" method="POST">
+            <div class="container" id="form-data">
                 <div>
-                <label for="adminId">User ID</label><br/>
-                <input   type="text" name="adminId" id="adminId" value=""/>
+                    <label for="adminId">User ID</label><br/>
+                    <input   type="text" name="adminId" id="adminId" value=""/>
                 </div>
                 <div>
-                <label for="password">Password</label><br/>
-                <input  type="password" name="password" id="password" value=""/><br/>
+                    <label for="password">Password</label><br/>
+                    <input  type="password" name="password" id="password" value=""/><br/>
                 </div>
                 <div class="text-center">
-                    <button class="btn" type="submit">Sign in</button>
+                    <button class="btn" id="sign-in">Sign in</button>
                 </div>
-            </form>
-
-            
+            </div>    
         </div>
     </div>
     <div class="container lastdiv">
@@ -37,5 +35,7 @@
         <p><strong>Password</strong></p>
         <p>Easy_123</p>
     </div>
+
+    <script src="login.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ app.use(bodyparser.json());
 app.use(cors());
 
 app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/js'));
 
 app.set('view engine', 'ejs');
 

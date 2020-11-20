@@ -20,24 +20,25 @@
     </nav>
     <div class="sidebar">
         <div class="side-top-margin container">
-        <a onclick="openItem()">Promotions</a>
-        <div id="mySidenav">
-            <div class="mt-2"><a href="/promocode">Promo Codes</a></div>
-            <div class="mt-2"><a href="/addnewpromo">Add Promo Codes</a></div>
+            <button id="promotion">Promotions</button>
+            <div id="mySidenav">
+                <div class="mt-2"><a href="/promocode">Promo Codes</a></div>
+                <div class="mt-2"><a href="/addnewpromo">Add Promo Codes</a></div>
+            </div>
+            <div id="main">
+                <div class="mt-2"><a href="/order">Orders</a></div>
+                <div class="mt-2"><a href="/getallproducts">Products</a></div>
+            </div>
         </div>
-        <div id="main">
-            <div class="mt-2"><a href="#news">Orders</a></div>
-            <div class="mt-2"><a href="/getallproducts">Products</a></div>
-        </div>
-    </div>
     </div>
         
     <div class="content">
             
         <div><a href="/addproducts" class="btn button-design">Add New Product</a></div>
         <% for(var i=0; i < item.length; i++) { %>
-            <a href="/editproduct/<%=item[i]._id%>">
-                <div class="card">
+            <div class="card">
+            <a style="color: black;" href="/editproduct/<%=item[i]._id%>">
+                
                     <img  class="card-img-top" src="<%=item[i].image%>" alt="Card image">
                     <div class="card-body">
                         <small class="card-title"><%=item[i].product_name%></small>
@@ -57,21 +58,8 @@
     
      
     
-    <script>
-            
-            function openItem() {
-              //document.getElementById("mySidenav").style.width = "250px";
-                var x = document.getElementById("mySidenav");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                //document.getElementById("main").style.marginTop = "250px";
-            }
-            
-            
-            </script>
+    <script src="sidebarManage.js" type="text/javascript"></script>
+
 </body>
 </html>
 

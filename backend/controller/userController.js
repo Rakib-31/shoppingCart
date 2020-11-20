@@ -5,6 +5,7 @@ const PromoCodeModel = require('../model/promoCodeModel');
 
 module.exports = {
 
+    // get all products from the AddProductModel
     getProducts(req,res){
         var imageData;
         console.log('req.query');
@@ -18,7 +19,9 @@ module.exports = {
             res.status(200).json(data);
         }); 
     },
+    
 
+    //save item to the cart 
     postCartItem(req,res){
         let userCart = new UserCartModel(req.body);
             
@@ -29,6 +32,8 @@ module.exports = {
             .catch(error => console.log(error));
     },
 
+
+    //get item all from the cart
     getCartItem(req, res) {
         UserCartModel.find(req.query)
         .exec(function(err, data) {
@@ -42,6 +47,8 @@ module.exports = {
         });
     },
 
+
+    //delete single cart item
     deleteCartItem(req, res){
         UserCartModel.remove(req.query)
         .exec(function(err, dataa){
@@ -62,6 +69,8 @@ module.exports = {
         })
     },
 
+
+    //update cart item
     updateCartItem(req, res){
         UserCartModel.findOneAndUpdate(req.query, req.body, { upsert: true }, function(err) {
             if (err){

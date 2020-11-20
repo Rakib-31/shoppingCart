@@ -50,7 +50,7 @@ nav{
     color: black;
     margin-left: 3%;
     text-decoration: none;
-    font-size: 1.7vw;
+    font-size: 1vw;
   }
    
   
@@ -85,6 +85,16 @@ nav{
       background: white;
       border: none;
       color: black;
+  }
+
+  .button-click-color{
+      background-color: white;
+      height: 60px;
+      width: 100px;
+      border: none;
+      border-radius: 20px 20px;
+      margin: 20px;
+      cursor: pointer;
   }
 
   form{
