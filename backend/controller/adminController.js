@@ -93,10 +93,10 @@ module.exports = {
 
     //creating new products
     saveProduct(req,res,next) {
-        //console.log(req.file);
+        console.log(req.body);
         let { product_name, product_price, discount_rate, shipping_charge,color,size,active} = req.body;
         let {image} = req.file;
-        console.log(image);    
+        //console.log(image);    
         let checkError = validate({image, product_name, product_price, discount_rate, shipping_charge,color,size,active});
         if(checkError.isValid){
             // resize image using sharp
@@ -113,13 +113,15 @@ module.exports = {
                     size,
                     active
                 });
-                console.log(product);
+                //console.log(product);
                 product.save()
-                .then(product => {
-                    res.status(500).json({message: 'Product created successfully'});
+                .then(prod => {
+                   // res.status(200).json({message: 'Product created successfully'});
+                   console.log(prod);
+                    res.redirect('/getallproducts');
                     
                 })
-                .catch(eror => console.log(error));
+                .catch(eror => res.status(400).json(error));
             })
             .catch(error => {
                 console.log(error);
@@ -191,7 +193,7 @@ module.exports = {
     savePromoCode(req,res,next) {
         console.log(req.body);
            
-        let checkError = promoValidate({promo_code, start_date,end_date, discount_rate, use_time});
+        let checkError = promoValidate(req.body);
         if(checkError.isValid){
             console.log('valid');
             // resize image using sharp
@@ -199,7 +201,7 @@ module.exports = {
             
             promo.save()
             .then(promo => {
-                res.status(200).json({message: 'Promo code created successfully'});
+                res.redirect('/promocode');
             })
             .catch(error => console.log(error));
         } else {
@@ -230,7 +232,7 @@ module.exports = {
 
     //update the existing promo code here
     updatePromo(req,res){
-        PromoCodeModel.findOneAndUpdate({promo_code:req.body.promo_code}, req.body, { upsert: true }, function(err){
+        PromoCodeModel.findOneAndUpdate(req.query, req.body, { upsert: true }, function(err){
             if(err) {
                 res.status(500).json(err);
             }

@@ -32,11 +32,11 @@ const addProductSchema = new Schema({
     size: {
         type: String,
         required: true
+    },
+    active: {
+        type: String,
+        default: 'NO'
     }
-    // active: {
-    //     type: Boolean,
-    //     default: false
-    // }
 });
 
 const AddProductModel = mongoose.model('AddProductModel', addProductSchema);

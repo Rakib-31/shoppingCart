@@ -8,6 +8,7 @@ body{
 
 a{
     cursor: pointer;
+    color: black;
 }
 
 nav{
@@ -62,6 +63,8 @@ nav{
     overflow: auto;
     margin-top: 8%;
   }
+
+  
 
   #mySidenav{
     display: none;

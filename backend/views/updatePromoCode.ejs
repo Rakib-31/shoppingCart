@@ -11,7 +11,7 @@
     <nav class=" border-box ">
         <div class="container">
         <div class="row navpad">
-            <div class="col-6"><button class="btn"><h5>Test Logo</h5></button></div>
+            <div class="col-6"><a href="/getallproducts" class="btn"><h5>Test Logo</h5></a></div>
             <div class="col-6 text-right ">User Name </div>
         </div>
         </div>
@@ -32,7 +32,7 @@
         
     <div class="content">
         <div class="form-position">
-            <form action="/updatepromo" method="POST">
+            <form action="/updatepromo?_id=<%=updatePromoData._id%>" method="POST">
                 
                 <div class="form-group">
                     <label for="promo_code">Promo Code</label>

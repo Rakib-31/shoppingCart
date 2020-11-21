@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="panel.css" type="text/css">
-  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   
 </head>
 <body>
@@ -14,7 +14,7 @@
     <nav class=" border-box ">
         <div class="container">
         <div class="row navpad">
-            <div class="col-6"><button class="btn"><h5>Test Logo</h5></button></div>
+            <div class="col-6"><a href="/getallproducts" class="btn"><h5>Test Logo</h5></a></div>
             <div class="col-6 text-right ">User Name </div>
         </div>
         </div>
@@ -36,14 +36,14 @@
     <div class="content">
         <div><a href="/addnewpromo" class="btn button-design">Add New Promo</a></div>
         <div class="container">
-        <% for(var i=0; i < promoItem.length; i++) { %>
+        <% for(var i=promoItem.length-1, j=0; i >= 0 ; i--,j++) { %>
             <table class="table bg-whiteB mt-4">
                 <tr>
                     
-                    <td><pre><%=i+1%>     <%=promoItem[i].promo_code%></pre></td>
+                    <td><pre><%=j+1%>     <%=promoItem[i].promo_code%></pre></td>
                     
                     <td colspan="4">
-                        <button class="float-right m-2 btn-active btn-danger">Active</button>
+                        <button onclick="activeButtonHandler('<%=promoItem[i]._id%>', '<%=i+1%>')" id=<%= i+1%> class="float-right m-2 btn-active btn-danger"><%=promoItem[i].active_status%></button>
                         <a href="/updatepromo/<%=promoItem[i]._id%>"><button class="float-right m-2 btn-edit">Edit</button></a>
                     </td>
                 </tr>
@@ -51,8 +51,8 @@
                     <td><small>Created at: <%=promoItem[i].created_at.toLocaleString()%></small></td>
                     <td><small>Usages: <%=promoItem[i].usages%></small></td>
                     <td><small>Discount rate: <%=promoItem[i].discount_rate%>%</small></td>
-                    <td><small>Start date: <%=promoItem[i].start_date.toLocaleDateString("en-GB")%></small></td>
-                    <td><small>End date: <%=promoItem[i].end_date.toLocaleDateString()%></small></td>
+                    <td><small>Start date: <%=promoItem[i].start_date%></small></td>
+                    <td><small>End date: <%=promoItem[i].end_date%></small></td>
                 </tr>
             </table>
         <% } %> 
@@ -61,6 +61,21 @@
     </div>
 
     <script src="sidebarManage.js" type="text/javascript"></script>
+    <script>
+        
+        function activeButtonHandler(id, activeId){
+            console.log(activeId);
+            let activeButton = document.getElementById(activeId);
+            let setStatus = (activeButton.innerHTML === "Active") ? "Deactive" : "Active";
+            axios.post('http://localhost:4000/updatepromo?_id='+id, {active_status: setStatus})
+            .then(response => {
+                activeButton.innerHTML = setStatus;
+                console.log(response);
+            })
+            .catch(error=>console.log(error));
+            
+        }
+    </script>
     
 </body>
 </html>

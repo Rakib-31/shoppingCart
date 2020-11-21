@@ -11,7 +11,7 @@
     <nav class=" border-box ">
         <div class="container">
         <div class="row navpad">
-            <div class="col-6"><button class="btn"><h5>Test Logo</h5></button></div>
+            <div class="col-6"><a href="/getallproducts" class="btn"><h5>Test Logo</h5></a></div>
             <div class="col-6 text-right ">User Name </div>
         </div>
         </div>
@@ -55,9 +55,12 @@
                     <label for="use_time">Use Time</label>
                     <input class="form-control" type="text" value="" name="use_time" id="use_time"/>
                 </div>
-                <div class="checkbox-design d-flex">
-                    <label for="active_status">Active</label>
-                    <input class="ml-auto" type="checkbox" value="" name="active_status" id="active_status"/>
+                <div class="container d-flex">
+                    <label class="ml-4 mb-4" for="active_status">Active</label>
+                    <div class="text-right mr-4 ml-auto">
+                    <span style="color: blue;">YES<input class="ml-auto mr-1" type="checkbox" value="Active" name="active_status" id="active1"/></span>
+                    <span style="color: red;">NO<input class="ml-auto mr-1" type="checkbox" value="Deactive" name="active_status" id="active2" checked/></span>
+                    </div>
                 </div>
 
                 <div class="text-center">
@@ -68,6 +71,7 @@
     </div>
 
     <script src="sidebarManage.js" type="text/javascript"></script>
+    <script src="productManage.js"></script>
 
 </body>
 </html>

@@ -13,7 +13,7 @@
     <nav class=" border-box ">
         <div class="container">
         <div class="row navpad">
-            <div class="col-6"><button class="btn"><h5>Test Logo</h5></button></div>
+            <div class="col-6"><a href="/getallproducts" class="btn"><h5>Test Logo</h5></a></div>
             <div class="col-6 text-right ">User Name </div>
         </div>
         </div>
@@ -36,9 +36,9 @@
             
         <div><a href="/addproducts" class="btn button-design">Add New Product</a></div>
         <% for(var i=0; i < item.length; i++) { %>
-            <div class="card">
+            
             <a style="color: black;" href="/editproduct/<%=item[i]._id%>">
-                
+                <div class="card">
                     <img  class="card-img-top" src="<%=item[i].image%>" alt="Card image">
                     <div class="card-body">
                         <small class="card-title"><%=item[i].product_name%></small>
@@ -50,6 +50,7 @@
                     </div>
                 </div>
             </a>
+        
         <% } %> 
     </div>
 

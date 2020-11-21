@@ -31,11 +31,11 @@ const promoCodeSchema = new Schema({
     created_at: {
         type: Date,
         default: Date.now()
+    },
+    active_status: {
+        type: String,
+        default: 'Deactive'
     }
-    // active_status: {
-    //     type: Boolean,
-    //     default: false
-    // }
 });
 
 const PromoCodeModel = mongoose.model('PromoCodeModel', promoCodeSchema);
