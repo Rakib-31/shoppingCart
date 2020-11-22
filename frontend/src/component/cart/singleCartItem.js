@@ -7,21 +7,23 @@ export default function SingleCartItem(props) {
     
     const [numberOfItem, setNumberOfItem] = useState(props.item.quantity);
 
-    useEffect(() => {
-        axios.post('http://localhost:4000/user/cart/updatecartitem?_id='+props.item._id, {quantity: numberOfItem});
-        //setNumberOfItem(props.item.quantity);
-    },[numberOfItem]);
+    const updateQuantityOfCart = (item) => {
+        axios.post('http://localhost:4000/user/cart/updatecartitem?_id='+props.item._id, {quantity: item})
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+    }
 
     const incrementItemHandler = () => {
         // if(!numberOfItem) return;
         setNumberOfItem(prev => prev + 1);
+        updateQuantityOfCart(numberOfItem+1);
         
     }
 
     const decrementItemHandler = () => {
         if(!numberOfItem) return;
         setNumberOfItem(prev => prev - 1);
-        
+        updateQuantityOfCart(numberOfItem-1);
     }
 
     const totalPrice = () => {

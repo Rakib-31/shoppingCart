@@ -5,6 +5,7 @@ import './cart.css';
 import FooterCart from './footerCart';
 import SideCart from './sideCart';
 import { Link, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import Navbar from '../navbar/navbar';
 
 export default function ShowCart(){
 
@@ -60,6 +61,7 @@ export default function ShowCart(){
     
 
     return (
+        <div><Navbar/>
         <div class="border-box ml-4" id="showcart">
             <div className="content-left">
                 <button class="button-design ml-4 mb-4"><strong>Go back</strong></button>
@@ -76,5 +78,6 @@ export default function ShowCart(){
             </div>
             
         </div>  
+        </div>
     );
 }

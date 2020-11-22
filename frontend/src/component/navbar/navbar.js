@@ -3,19 +3,19 @@ import './navbar.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import axios from 'axios';
 
-function App() {
+function Navbar(props) {
 
-    const [cartItem, setCartItem] = useState([]);
+    // const [cartItem, setCartItem] = useState([]);
 
 
-    useEffect(()=>{
-        axios.get('http://localhost:4000/user/cart/getcartitem')
-        .then(response => {
-            console.log(response.data.length);
-            setCartItem(response.data.length);
-        })
-        .catch(error => console.log(error));
-    })
+    // useEffect(()=>{
+    //     axios.get('http://localhost:4000/user/cart/getcartitem')
+    //     .then(response => {
+    //         console.log(response.data.length);
+    //         setCartItem(response.data.length);
+    //     })
+    //     .catch(error => console.log(error));
+    // })
 
   return (
 
@@ -31,7 +31,7 @@ function App() {
                 shopping_cart
                 </span>
                 <p className="ml-2 text-right" style={{ display: "inline-block"}}>Cart</p>
-                <button className="ml-1 text-right cart-button">{cartItem}</button>
+                <button className="ml-1 text-right cart-button">{props.cartItem}</button>
             </Link>
             
         </div>
@@ -40,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default Navbar;

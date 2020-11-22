@@ -22,11 +22,12 @@ function Product(props){
         axios.post('http://localhost:4000/user/cart/postitem', ob)
         .then(response => {
             console.log('successfully save on cart from frontend');
+            props.increamentCartProduct();
         })
         .catch(error => console.log(error));
     }
     return(
-        <div className="hoverover">
+        <div className="hoverover mt-4">
             <div className="underover">
             <div className="card ml-3">
             <img  className="card-img-top image" src={props.product.image} alt="Card image"/>

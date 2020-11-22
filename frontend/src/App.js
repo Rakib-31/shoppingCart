@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div>
-          <Navbar/>
+ 
           <div style={{marginTop: "10%"}}>
             <switch>
               <Route path="/cartitem" component={ShowCart}/>
