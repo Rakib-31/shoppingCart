@@ -29,7 +29,7 @@ export default function ConfirmModal(props){
   function showModal(){
       
           return (
-            <div onClick={()=>props.closeModal(false)}>
+            <div className="text-center" onClick={()=>props.closeModal(false)}>
             
             <Modal
               isOpen={modalIsOpen}
@@ -43,8 +43,11 @@ export default function ConfirmModal(props){
                 </span>
               </div>
               
-              <div>Your product added successfully</div>
-            </Modal>
+              <div className="text-white m-4">Your product added successfully</div>
+              <div className="text-center ml-4">
+                <a href="http://localhost:4000/login" className="btn btn-yellow">Go to Admin</a>
+              </div>
+              </Modal>
           </div>
           );
       

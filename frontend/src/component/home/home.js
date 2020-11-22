@@ -41,7 +41,8 @@ function Home() {
         <div class="border-box">
         
                 {products.map((product,index) =>{
-                    return (product.active === "yes") ? <Product increamentCartProduct={increamentCartProduct} product={product}/> : ""
+                    console.log(product.active);
+                    return (product.active === "YES") ? <Product increamentCartProduct={increamentCartProduct} product={product}/> : ""
                 })
                     
                 }
