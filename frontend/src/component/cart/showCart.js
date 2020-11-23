@@ -64,7 +64,7 @@ export default function ShowCart(){
         <div><Navbar/>
         <div class="border-box ml-4" id="showcart">
             <div className="content-left">
-                <button class="button-design ml-4 mb-4"><strong>Go back</strong></button>
+                <a href="/"><button class="button-design ml-4 mb-4"><strong>Go back</strong></button></a>
                 {
                  cartItem.map((item,index) =>{
                      
